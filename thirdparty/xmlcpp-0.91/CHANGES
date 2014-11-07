@@ -1,0 +1,9 @@
+0.9 ->
+
+1. Check multiple root error. If it is detected, throw exception. You can turn off this check using 'set_feature(PullParser::MULTIPLE_ROOT)'. It's not the XmlPull v1 API feature.
+
+ex) "<a></a><b></b>"
+
+
+2. Check unclosed tag when the input is over.
+ex) "<a><b></b>"

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!-- Edited with XML Spy v2006 (http://www.altova.com) -->
+<note>
+	<to>Tove</to>
+	<from>Jani</from>
+	<heading>Reminder</heading>
+	<body>Norwegian: æøå. French: êèé</body>
+	<tag />
+	<script lang="java">
+<![CDATA[
+function matchwo(a,b)
+{
+}
+]]>
+	</script>
+</note>

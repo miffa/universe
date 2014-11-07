@@ -1,0 +1,7 @@
+This directory holds source code files for xmlcpp library, unit test, and sample codes. It holds xml files for the unit test also. You *should not* delete or modify the xml files in this directory.
+
+If you want to use this library, make the files in the current directory your project files.
+
+This library's license is Boost Software license. For detailed information, see the `LICENSE_1_0.txt' file or visit `http://www.boost.org/LICENSE_1_0.txt'.
+
+For more information, visit 'http://xmlcpp.sourceforge.net'.
