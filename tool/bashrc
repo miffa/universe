@@ -1,0 +1,58 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
+#change system varibles
+PS1="[\u@\h \W]\$"
+
+# User specific aliases and functions
+export LANG="zh_CN.UTF-8"
+export DEVROOT="/home/wangjingjing/qdev/"
+export workdir="${HOME}/qdev/qsearch/develop/src/qrewrite"
+export dev="${HOME}/wjj"
+
+MYTOOLS="${HOME}/tools"
+GTEST_HOME="${MYTOOLS}/gtest"
+ANT_HOME="${HOME}/tools/ant"
+JAVA_HOME="${HOME}/tools/jdk1.7.0_40"
+CLASSPATH="${JAVA_HOME}/lib/dt.jar:${JAVA_HOME}/lib/tools.jar:${JAVA_HOME}/lib:${JAVA_HOME/jre/lib}"
+PATH="${PATH}:${MYTOOLS}/xmlto/bin:${MYTOOLS}/asciidoc/bin:${MYTOOLS}/git/bin:${MYTOOLS}/cmake/bin:${HOME}/tools/lcov/usr/bin:${HOME}/tools/cppcheck:${HOME}/tools/pssh/bin:${JAVA_HOME}/bin:\
+	${JAVA_HOME}/jre/bin:${ANT_HOME}/bin:${HOME}/tools/jmeter/bin:${MYTOOLS}/enca/bin:${MYTOOLS}/script_tools:\
+	${MYTOOLS}/Cscope15.8a/bin:${MYTOOLS}/ctags5.8/bin:\
+	${MYTOOLS}/protobuf/bin:${MYTOOLS}/ccache/bin:"
+MANPATH="${MANPATH}:${HOME}/tools/lcov/usr/man/man1:${HOME}/tools/lcov/usr/man/man5"
+export PATH
+export MANPATH
+C_INCLUDE_PATH="${C_INCLUDE_PATH}:${MYTOOLS}/libevent/include:${MYTOOLS}/libevhtp/include:${GTEST_HOME}/include:${MYTOOLS}/libcurl/include:${MYTOOLS}/lzo/include:${MYTOOLS}/protobuf/include"
+CPLUS_INCLUDE_PATH="${CPLUS_INCLUDE_PATH}${MYTOOLS}/libevent/include:${MYTOOLS}/libevhtp/include:${GTEST_HOME}/include:${MYTOOLS}/lzo/include:\
+${MYTOOLS}/protobuf/include"
+
+LIBRARY_PATH="${LIBRARY_PATH}:${MYTOOLS}/libevent/lib:${MYTOOLS}/libevhtp/lib:${GTEST_HOME}/lib:${MYTOOLS}/libcurl/lib:${MYTOOLS}/lzo/lib:\
+		${MYTOOLS}/protobuf/lib"
+LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${MYTOOLS}/libevent/lib:${MYTOOLS}/libevhtp/lib:${GTEST_HOME}/lib:${MYTOOLS}/libcurl/lib:${MYTOOLS}/lzo/lib:\
+		${MYTOOLS}/protobuf/lib"
+LIBEVENT_LIBRARY="${MYTOOLS}/libevent/lib"
+LIBEVENT_INCLUDE_DIR="${MYTOOLS}/libevent/include"
+export LIBEVENT_LIBRARY
+export LIBEVENT_INCLUDE_DIR
+
+export C_INCLUDE_PATH
+export CPLUS_INCLUDE_PATH
+export LIBRARY_PATH
+export LD_LIBRARY_PATH
+#user's alias
+alias rm="rm -rf"
+CSCOPE_CTAGS_PATH=$PATH
+export PATH=$HOME/.vim/cscope/bin:$HOME/.vim/ctags/bin:$CSCOPE_CTAGS_PATH
+
+alias g++="ccache g++"
+alias gcc="ccache gcc"
+alias cc="ccache cc"
+alias cpp="ccache cpp"
+alias ssh="sudo -u search ssh"
+alias scp="sudo -u search scp"
+alias debug="./blade build bin"
+alias release="./blade build bin -p release"
