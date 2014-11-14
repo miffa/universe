@@ -1,11 +1,16 @@
 // coming from libevhtp-htparse.c
 // unix1986@qq.com
 // Format: [mon-day hour:min:sec] "source_file_name":[line_no] func_name: user_content
-#ifndef __TOOL_INCLUDE_DBG_LOG__
-#define __TOOL_INCLUDE_DBG_LOG__
+#ifndef __COM_GITHUB_UNIVERSE_UTIL_DBG_LOG_H__
+#define __COM_GITHUB_UNIVERSE_UTIL_DBG_LOG_H__
 
 #include <stdio.h>
 #include <time.h>
+
+namespace github{
+namespace unix1986{
+namespace universe{
+namespace util{
 
 #ifdef __DBG_LOG__
 #define __QUOTE(x)                  # x
@@ -27,4 +32,5 @@
 #define __dbg_log(fmt, ...) do {} while (0)
 #endif
 
-#endif //__TOOL_INCLUDE_DBG_LOG__
+}}}} // github::unix1986::universe::util
+#endif //__COM_GITHUB_UNIVERSE_UTIL_DBG_LOG_H__
