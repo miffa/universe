@@ -40,6 +40,8 @@ public:
         #endif
         return static_cast<uint64_t>(now.tv_sec * 1000 * 1000 * 1000 + now.tv_nsec);
     }
+private:
+    
 };
 
 }}}} // github::unix1986::universe:util
