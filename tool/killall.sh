@@ -37,4 +37,8 @@ if [ $? -ne 0 ]; then
 	fi
 fi
 
-eval ${PSSH} -h "${HOST_LIST}" -p 50 "kill -9 -1"
+CMDLINE="ps -ef | awk '/^search  */' | grep -v notty \
+	| grep -v ps | grep -v awk | grep -v xargs \
+	| grep -v kill | grep -v grep | awk '{print \$2}'\
+	| xargs -i kill -9 {}"
+$PSSH -h "$HOST_LIST" -p 50 "$CMDLINE"
