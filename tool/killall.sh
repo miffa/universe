@@ -1,5 +1,12 @@
 #!/bin/sh
 
+#### A new script for clean up the test cluster ####
+#    use the script in one machine of the test     #
+#    cluster, as a result, all processes can be    #
+#    killed by search will be killed except the    #
+#    pts one owned by the current user.            #
+####################################################
+
 PSSH_DIR="./pssh-2.3.1"
 
 if [ $# -ne 1 ]; then
@@ -17,8 +24,7 @@ CUR_PTS="pts/$(basename `tty`)"
 ps -ef | grep -v "${CUR_PTS}" | awk '{print $2}' | xargs -i kill -9 {} &>/dev/null
 # kill all processes can be killed by me of other machines
 CUR_HOST=`hostname`
-TMP_FILE="/tmp/.`md5sum $0 | awk '{print $1}'`"
-rm -rf "${TMP_FILE}"
+TMP_FILE="/tmp/.`date +%s | md5sum | awk '{print $1}'`"
 grep -v "\#" "$1" | awk 'BEGIN{FS=":"}{print $2}' | sort | uniq | grep -v "${CUR_HOST}" >"${TMP_FILE}"
 if [ -f "${TMP_FILE}" ]; then
 	HOST_LIST="$TMP_FILE"
@@ -42,3 +48,5 @@ CMDLINE="ps -ef | awk '/^search  */' | grep -v notty \
 	| grep -v kill | grep -v grep | awk '{print \$2}'\
 	| xargs -i kill -9 {}"
 $PSSH -h "$HOST_LIST" -p 50 "$CMDLINE"
+
+rm -rf "${TMP_FILE}"
